@@ -40,3 +40,10 @@ const products = [{
   */
 ]; // this is a list of a object . and array represent a list
 
+// ---------- generate html using js loop -----------//
+
+products.forEach((product)=>{ // inside create a function , pass parameter product. 
+// check korbo product er html code kothai ache. otake hover kore then html code e class ta search korbo . poro code ta copy korbo
+const html = ``; // ekhane paste korbo
+
+}); // loop through this array using a for each method
