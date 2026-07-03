@@ -41,10 +41,12 @@ const products = [{
 ]; // this is a list of a object . and array represent a list
 
 // ---------- generate html using js loop -----------//
-
+let productsHTML = [];
 products.forEach((product)=>{ // inside create a function , pass parameter product. 
 // check korbo product er html code kothai ache. otake hover kore then html code e class ta search korbo . poro code ta copy korbo
-const html = `<div class="product-container">
+
+// this is accumulator pattern. we are adding result
+productsHTML += `<div class="product-container">
                 <div class="product-image-container">
                   <img class="product-image"
                     src="${product.image}">
@@ -93,7 +95,15 @@ const html = `<div class="product-container">
                 </button>
               </div>`; // ekhane paste korbo
               // tab press kore indexing thik rakhbo
-    console.log(html); // kar kore kina check ?
+   // kar kore kina check ?
 
 }); // loop through this array using a for each method
 // in this code there are fixed value but we want to change this
+
+
+//-------part of DOM -------//
+
+console.log(productsHTML);
+
+document.querySelector('.js-products-grid')
+  .innerHTML = productsHTML; //  worked only for dot
