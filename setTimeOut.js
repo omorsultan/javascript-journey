@@ -8,8 +8,21 @@
 // };
 
 // // print random number , with 100 msec gap
+/*
 for( let i = 0; i<= 100 ; i++){
   setTimeout(function(){
     console.log(Math.floor(Math.random()*10))
   },i*100);
 };
+*/
+
+//-----------var and let output changes---------------//
+for (var i = 0; i < 3; i++) {
+  setTimeout(() => console.log(i), 1000);
+}
+// Prints: 3, 3, 3
+
+for (let i = 0; i < 3; i++) {
+  setTimeout(() => console.log(i), 1000);
+}
+// Prints: 0,1,2

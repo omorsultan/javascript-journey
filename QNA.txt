@@ -1,0 +1,28 @@
+Question 1: Does arr.map(...) alone change the original array?
+Answer: No. .map() never changes the original array; it always returns a brand-new one.
+
+Question 2: Can you reassign a const array (e.g., arr = arr.map(...))?
+Answer: No. Reassigning a const variable directly using the equals sign (=) will throw an error.
+
+Question 3: Can you change the values inside a const array?
+Answer: Yes. const stops you from changing the variable's reference, but it allows you to modify, add, or change the data inside the array (e.g., arr[0] = 5).
+
+1. The var Behavior (Shared Function Scope)
+When you use var, the variable is hoisted to the top of the function (or global scope). There is only one physical memory slot for that variable.
+
+JavaScript
+for (var i = 0; i < 3; i++) {
+  setTimeout(() => console.log(i), 1000);
+}
+// Prints: 3, 3, 3
+Because setTimeout is asynchronous, the loop finishes completely before any of the callbacks run. By that time, the single shared i has already been incremented to 3. Every callback points to that exact same slot in memory.
+
+2. The let Behavior (Block Scope Binding)
+When you use let in a for loop, JavaScript does some beautiful magic behind the scenes. It doesn't just create a block scope; it actually creates a brand new variable binding for every single iteration of the loop.
+
+JavaScript
+for (let i = 0; i < 3; i++) {
+  setTimeout(() => console.log(i), 1000);
+}
+// Prints: 0, 1, 2
+Each time the loop runs, a new copy of i is born in its own block scope, captures the current value, and stays trapped inside that specific callback's closure.
