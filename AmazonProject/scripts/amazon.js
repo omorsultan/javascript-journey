@@ -1,4 +1,6 @@
 
+
+/* no need now
 // ------------------- list of products --------//
 const products = [{
   image: 'images/products/athletic-cotton-socks-6-pairs.jpg',
@@ -26,19 +28,10 @@ const products = [{
   },
   priceCents: 799
 }
-/*
-,
-{
-  image: 'images/products/athletic-cotton-socks-6-pairs.jpg',
-  name: ' Black and Gray Athletic Cotton Socks - 6 Pairs',
-  rating:{
-    stars: 4.5,
-    count: 87
-  },
-  priceCents: 1090
-}
-  */
+
 ]; // this is a list of a object . and array represent a list
+
+*/
 
 // ---------- generate html using js loop -----------//
 let productsHTML = [];
@@ -65,7 +58,7 @@ productsHTML += `<div class="product-container">
                 </div>
 
                 <div class="product-price">
-                  $${product.priceCents / 100}
+                  $${(product.priceCents / 100).toFixed(2)}
                 </div>
 
                 <div class="product-quantity-container">
