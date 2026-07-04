@@ -1,6 +1,5 @@
 
-//---- use module ----//
-import{cart } from '../data/cart.js';
+import{cart, addToCart } from '../data/cart.js';
 import { products } from '../data/products.js';
 
 /* no need now
@@ -106,26 +105,7 @@ document.querySelector('.js-products-grid')
   .innerHTML = productsHTML; //  worked only for dot
 
 //---------- create another function for readability--- //
-function addToCart(productId){
 
-     let matchingItem;
-
-     cart.forEach((cartItem)=>{
-      if(productId === cartItem.productId){
-        matchingItem = cartItem;
-      }
-     })
-
-     if(matchingItem){
-      matchingItem.quantity +=1;
-     }
-     else{
-       cart.push ({
-        productId: productId, // use productId instead of productName
-        quantity : 1
-      });
-    }
-};
 
 function updateCartQuantity(){
     let cartQuantity = 0;
