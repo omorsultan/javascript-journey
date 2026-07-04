@@ -37,10 +37,7 @@ const products = [{
 
 // ---------- generate html using js loop -----------//
 let productsHTML = [];
-products.forEach((product)=>{ // inside create a function , pass parameter product. 
-// check korbo product er html code kothai ache. otake hover kore then html code e class ta search korbo . poro code ta copy korbo
-
-// this is accumulator pattern. we are adding result
+products.forEach((product)=>{ 
 productsHTML += `<div class="product-container">
                 <div class="product-image-container">
                   <img class="product-image"
