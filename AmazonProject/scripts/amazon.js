@@ -1,6 +1,7 @@
 
 //---- use module ----//
-import{cart} from '../data/cart.js';
+import{cart } from '../data/cart.js';
+import { products } from '../data/products.js';
 
 /* no need now
 // ------------------- list of products --------//
