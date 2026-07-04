@@ -83,8 +83,10 @@ productsHTML += `<div class="product-container">
                   Added
                 </div>
 
-                <button class="add-to-cart-button button-primary">
-                  Add to Cart
+                <button class="add-to-cart-button button-primary js-add-to-cart"
+                data-product-name="${product.name}">
+                  Add to Cart  <!--now we will implement add to cart button
+                   here -->
                 </button>
               </div>`; // ekhane paste korbo
               // tab press kore indexing thik rakhbo
@@ -96,7 +98,22 @@ productsHTML += `<div class="product-container">
 
 //-------part of DOM -------//
 
-console.log(productsHTML);
 
 document.querySelector('.js-products-grid')
   .innerHTML = productsHTML; //  worked only for dot
+
+document.querySelectorAll('.js-add-to-cart')
+  .forEach((button)=>{ 
+    button.addEventListener('click',()=>{
+     const productName = button.dataset.productName;
+
+     cart.push ({
+      productName: productName,
+      quantity : 1
+     });
+     console.log(cart);
+    });
+
+  });
+
+ 
