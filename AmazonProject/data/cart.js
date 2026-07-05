@@ -26,3 +26,13 @@ export function addToCart(productId){
       });
     }
 };
+
+export function removeFromCart(deleteId){
+    const index = cart.findIndex( item => item.productId === deleteId);
+    
+    if(index !== -1){
+      cart.splice(index, 1);
+      console.log(`procuct deleteted product id is= ${deleteId}`);
+    }
+   console.log(cart);
+}
