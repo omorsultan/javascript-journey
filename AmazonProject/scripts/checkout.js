@@ -17,7 +17,8 @@ let cartSummeryHTML = '';
 
   
   cartSummeryHTML+= `
-   <div class="cart-item-container">
+   <div class="cart-item-container 
+   js-cart-item-conatiner-${matchingProduct.id}">
             <div class="delivery-date">
               Delivery date: Tuesday, June 21
             </div>
@@ -107,6 +108,8 @@ document.querySelectorAll('.js-delete-quantity-link')
   link.addEventListener('click',()=>{
       const deleteId= link.dataset.deleteId;
          removeFromCart(deleteId);
+         const container = document.querySelector(`.js-cart-item-conatiner-${deleteId}`);
+         container.remove();
       
   });
  });
