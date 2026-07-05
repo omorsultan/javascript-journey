@@ -40,7 +40,7 @@ let cartSummeryHTML = '';
                   <span class="update-quantity-link link-primary">
                     Update
                   </span>
-                  <span class="delete-quantity-link link-primary">
+                  <span class="delete-quantity-link link-primary js-delete-quantity-link">
                     Delete
                   </span>
                 </div>
@@ -99,8 +99,15 @@ let cartSummeryHTML = '';
 
  document.querySelector('.js-order-summary')
   .innerHTML = cartSummeryHTML;
-console.log(cartSummeryHTML);
+// console.log(cartSummeryHTML);
 
+
+document.querySelectorAll('.js-delete-quantity-link')
+ .forEach((link)=>{
+  addEventListener('click',()=>{
+     console.log('deleted');
+  });
+ });
 
 
 
