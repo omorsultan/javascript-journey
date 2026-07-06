@@ -26,12 +26,31 @@ let cartSummeryHTML = '';
   });
   // console.log(matchingProduct);
 
+const deliveryOptionId = cartItem.deliveryOptionId;
+let deliveryOption;
+
+deliveryOptions.forEach((option)=>{
+  if(option.id === deliveryOptionId){
+    deliveryOption = option;
+  }
+});
+
+
+  const today = dayjs();
+  const delivaryDate = today.add(
+    deliveryOption.delivaryDays,
+    'days'
+  );
+  const dateString = delivaryDate.format(
+    'dddd, MMMM D'
+  ); 
+
   
   cartSummeryHTML+= `
    <div class="cart-item-container 
    js-cart-item-conatiner-${matchingProduct.id}">
             <div class="delivery-date">
-              Delivery date: Tuesday, June 21
+              Delivery date: ${dateString}
             </div>
 
             <div class="cart-item-details-grid">
@@ -70,8 +89,6 @@ let cartSummeryHTML = '';
   // we need to reaset cart-item-container html code here
   
  });
-
-
 
 
 function deliveryOptionHTML(matchingProduct, cartItem){
