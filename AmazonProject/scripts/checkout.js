@@ -62,19 +62,19 @@ let cartSummeryHTML = '';
                 <div class="delivery-options-title">
                   Choose a delivery option:
                 </div>
-                ${deliveryOptionHTML(matchingProduct)}
+                ${deliveryOptionHTML(matchingProduct, cartItem)}
               </div>
             </div>
           </div>
   `
-  // we need to paset cart-item-container html code here
+  // we need to reaset cart-item-container html code here
   
  });
 
 
 
 
-function deliveryOptionHTML(matchingProduct){
+function deliveryOptionHTML(matchingProduct, cartItem){
   let html = '';
   deliveryOptions.forEach((deliveryOption)=>{
     const today = dayjs();
@@ -90,9 +90,12 @@ function deliveryOptionHTML(matchingProduct){
      === 0 
      ?'FREE'
      :`$${formatCurrency(deliveryOption.priceCents)}-`;
+
+
+    const isChecked = deliveryOption.id === cartItem.deliveryOptionId;
 html += ` 
     <div class="delivery-option">
-      <input type="radio"
+      <input type="radio" ${isChecked ? 'checked' : ''}
         class="delivery-option-input"
         name="delivery-option-${matchingProduct.id}">
       <div>
