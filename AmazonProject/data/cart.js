@@ -15,6 +15,7 @@ if(!cart){ // intregate delivery with normalization
 
 };
 console.log("it is cart now ",cart);
+
 function saveToStorage(){
   localStorage.setItem('cart', JSON.stringify(cart));
 }
@@ -51,4 +52,19 @@ export function removeFromCart(deleteId){
     }
    console.log(cart);
    saveToStorage(); 
+}
+
+export function updateDeliveryOption(productId, deiveryOptionId){
+   let matchingItem;
+
+     cart.forEach((cartItem)=>{
+      if(productId === cartItem.productId){
+        matchingItem = cartItem;
+      }
+     })
+
+     matchingItem.deliveryOptionId = deiveryOptionId;
+    //  console.log('hit updated' , productId, deiveryOptionId);
+
+     saveToStorage();
 }
