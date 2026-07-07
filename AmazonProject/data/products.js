@@ -1,4 +1,4 @@
-export function getProduct(cartProduct){
+export function returnMatchingProduct(cartProduct){
   for( const product of products){
     if( product.id === cartProduct.productId){
       return product;
