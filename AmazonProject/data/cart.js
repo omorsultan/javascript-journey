@@ -8,7 +8,7 @@ console.log("it is cart",cart);
 if(!cart){ // intregate delivery with normalization
    cart = [{
   productId: 'e43638ce-6aa0-4b85-b27f-e1d07eb678c6',
-  quantity: 2,
+  quantity: 1,
   deliveryOptionId: '3'
 }, {
   productId: '15b6fc6f-327a-4ec4-896f-486349e85a3d',
@@ -75,11 +75,3 @@ export function updateDeliveryOption(productId, deiveryOptionId){
      saveToStorage();
 }
 
-export function returnMatchingProduct(cartProduct){
-  for( const product of products){
-    if( product.id === cartProduct.productId){
-      return product;
-    }  
-  }
-  return null;
-};

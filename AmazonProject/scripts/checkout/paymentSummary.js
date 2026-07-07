@@ -1,7 +1,8 @@
-import { cart,returnMatchingProduct } from "../../data/cart.js";
+import { cart } from "../../data/cart.js";
 import { formatCurrency } from "../utils/money.js";
 import { returnDeliveryCharge } from "../utils/deliveryCarge.js";
 import { updateCartQuantity } from "../utils/updateCartQuantity.js";
+import { returnMatchingProduct } from "../../data/products.js";
 
 export function renderPaymentSummary(){
 
