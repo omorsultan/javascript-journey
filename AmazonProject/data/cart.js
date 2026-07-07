@@ -1,5 +1,6 @@
 
 import { products } from "./products.js";
+import { renderCheckout } from "../scripts/checkout.js";
 
 export let cart = JSON.parse(localStorage.getItem('cart'));
 console.log("it is cart",cart);
@@ -43,6 +44,8 @@ export function addToCart(productId){
       });
     }
     saveToStorage();
+    renderCheckout();
+
 };
 
 export function removeFromCart(deleteId){
@@ -54,6 +57,7 @@ export function removeFromCart(deleteId){
     }
    console.log(cart);
    saveToStorage(); 
+   renderCheckout();
 }
 
 export function updateDeliveryOption(productId, deiveryOptionId){

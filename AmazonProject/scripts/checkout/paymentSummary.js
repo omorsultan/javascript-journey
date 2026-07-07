@@ -1,7 +1,7 @@
 import { cart,returnMatchingProduct } from "../../data/cart.js";
 import { formatCurrency } from "../utils/money.js";
 import { returnDeliveryCharge } from "../utils/deliveryCarge.js";
-
+import { updateCartQuantity } from "../utils/updateCartQuantity.js";
 
 export function renderPaymentSummary(){
 
@@ -10,7 +10,7 @@ export function renderPaymentSummary(){
   
   cart.forEach((cartProduct) => {
     let matchingItem = returnMatchingProduct(cartProduct);
-    costCents += matchingItem.priceCents;
+    costCents += matchingItem.priceCents * cartProduct.quantity;
     shippingCostCents += returnDeliveryCharge(cartProduct);
     // console.log(cartProduct.deliveryOptionId);
     
@@ -18,4 +18,33 @@ export function renderPaymentSummary(){
    
   let cost = formatCurrency(costCents);
   let shippingCost = formatCurrency(shippingCostCents);
+
+  let costBeforeTaxCents = costCents + shippingCostCents;
+
+  let taxCents = 0.1 * costBeforeTaxCents;
+
+  let totalCents = costBeforeTaxCents + taxCents;
+
+  updateCartQuantity();
+  document.querySelector('.js-return-to-home-link')
+    .innerHTML = `${updateCartQuantity()} items`;
+
+  document.querySelector('.js-items')
+    .innerHTML =`Items (${updateCartQuantity()}) `;
+
+  document.querySelector('.js-total-cost')
+    .innerHTML = `$${cost}`;
+
+  document.querySelector('.js-total-delivery-charge')
+    .innerHTML = `$${shippingCost}`;
+
+  
+  document.querySelector('.js-subtotal')
+    .innerHTML = `$${formatCurrency(costBeforeTaxCents)}`;
+
+  document.querySelector('.js-tax')
+    .innerHTML = `$${formatCurrency(taxCents)}`;
+
+  document.querySelector('.js-total')
+    .innerHTML = `$${formatCurrency(totalCents)}`;
 }

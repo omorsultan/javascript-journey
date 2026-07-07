@@ -114,6 +114,7 @@ function updateCartQuantity(){
     document.querySelector('.js-cart-quantity')
       .innerHTML = `${cartQuantity}`;
       console.log(cart);
+   
 }
 
 document.querySelectorAll('.js-add-to-cart')
