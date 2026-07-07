@@ -147,7 +147,10 @@ document.querySelectorAll('.js-delete-quantity-link')
       const deleteId= link.dataset.deleteId;
          removeFromCart(deleteId);
          const container = document.querySelector(`.js-cart-item-conatiner-${deleteId}`);
-         container.remove();
+         
+        if (container) {
+          container.remove();
+}
       
   });
   
