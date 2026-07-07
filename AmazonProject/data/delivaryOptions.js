@@ -11,6 +11,12 @@ export const deliveryOptions = [{
   id : '3',
   delivaryDays : 1,
   priceCents : 999
-}
-  
+} 
 ]
+export function getDeliveryCharge(cartProduct){
+
+  for(const option of deliveryOptions){
+    if(option.id === cartProduct.deliveryOptionId)
+      return option.priceCents || deliveryOptions[0]; // if not find any then default value;
+  }
+}
