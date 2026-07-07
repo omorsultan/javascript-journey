@@ -2,7 +2,7 @@ import { cart } from "../../data/cart.js";
 import { formatCurrency } from "../utils/money.js";
 import { returnDeliveryCharge } from "../utils/deliveryCarge.js";
 import { updateCartQuantity } from "../utils/updateCartQuantity.js";
-import { returnMatchingProduct } from "../../data/products.js";
+import { getProduct } from "../../data/products.js";
 
 export function renderPaymentSummary(){
 
@@ -10,7 +10,7 @@ export function renderPaymentSummary(){
   let shippingCostCents = 0.0;
   
   cart.forEach((cartProduct) => {
-    let matchingItem = returnMatchingProduct(cartProduct);
+    let matchingItem = getProduct(cartProduct);
     costCents += matchingItem.priceCents * cartProduct.quantity;
     shippingCostCents += returnDeliveryCharge(cartProduct);
     // console.log(cartProduct.deliveryOptionId);

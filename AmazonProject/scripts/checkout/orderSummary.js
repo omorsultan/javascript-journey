@@ -1,5 +1,5 @@
 import{cart, removeFromCart , updateDeliveryOption} from '../../data/cart.js';
-import{products, returnMatchingProduct} from '../../data/products.js';
+import{products, getProduct} from '../../data/products.js';
 import { formatCurrency } from '../utils/money.js';
 import{hello} from ' https://unpkg.com/supersimpledev@1.0.1/hello.esm.js';
 import dayjs from ' https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
@@ -20,14 +20,8 @@ let cartSummeryHTML = '';
  cart.forEach((cartItem)=>{
   const productId = cartItem.productId;
 
-  const matchingProduct = returnMatchingProduct(cartItem);
+  const matchingProduct = getProduct(cartItem);
 
-  products.forEach((product)=>{
-    if(product.id === productId){
-      matchingProduct = product;
-    }
-  });
-  // console.log(matchingProduct);
 
 const deliveryOptionId = cartItem.deliveryOptionId;
 let deliveryOption;
